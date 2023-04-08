@@ -1,10 +1,12 @@
 import {StyleSheet, Text, View} from "react-native";
 import React from "react";
+import WeightInput from "../components/input/WeightInput";
 
 const ListScreen = () => {
   return (
-    <View style={{backgroundColor: "coral"}}>
+    <View>
       <Text>Lista Läkemedlen</Text>
+      <WeightInput />
     </View>
   );
 };

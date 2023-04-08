@@ -3,45 +3,49 @@ import {StyleSheet, Button, View, Pressable} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import InputScreen from "./screens/InputScreen";
+import KategoriScreeen from "./screens/KategoriScreen";
 import ListScreen from "./screens/ListScreen";
 import {FontAwesome5} from "@expo/vector-icons";
+import {GlobalStyles} from "./constants/appColors";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: "#f4511e",
-          },
-          headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-        }}
-      >
-        <Stack.Screen
-          name="Läkemedel"
-          component={InputScreen}
-          options={({navigation, route}) => ({
-            title: "Välj Läkemedel",
-            headerRight: () => (
-              <Pressable onPress={() => navigation.navigate("Lista")}>
-                <FontAwesome5 name="clipboard-list" size={24} color="#fff" />
-              </Pressable>
-            ),
-          })}
-        />
-        <Stack.Screen
-          name="Lista"
-          component={ListScreen}
-          options={{title: "Dos per kg"}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar style="light" />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.darkgreen,
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        >
+          <Stack.Screen
+            name="Kategori"
+            component={KategoriScreeen}
+            options={({navigation, route}) => ({
+              title: "Välj Läkemedel",
+              headerRight: () => (
+                <Pressable onPress={() => navigation.navigate("Lista")}>
+                  <FontAwesome5 name="clipboard-list" size={24} color="#fff" />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="Lista"
+            component={ListScreen}
+            options={{title: "Dos per kg"}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
