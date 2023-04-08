@@ -11,6 +11,22 @@ const LMCategory = [
     catId: "c3",
     catName: "Muskelrelax",
   },
+  {
+    catId: "c4",
+    catName: "Preoperativt",
+  },
+  {
+    catId: "c5",
+    catName: "Smärt Behandling",
+  },
+  {
+    catId: "c6",
+    catName: "Anestesi",
+  },
+  {
+    catId: "c7",
+    catName: "Cirkulation",
+  },
 ];
 
 export default LMCategory;
