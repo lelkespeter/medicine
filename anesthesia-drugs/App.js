@@ -30,7 +30,7 @@ export default function App() {
             name="Kategori"
             component={KategoriScreeen}
             options={({navigation, route}) => ({
-              title: "Välj Läkemedel",
+              title: "Läkemedel vi använder",
               headerRight: () => (
                 <Pressable onPress={() => navigation.navigate("Lista")}>
                   <FontAwesome5 name="clipboard-list" size={24} color="#fff" />

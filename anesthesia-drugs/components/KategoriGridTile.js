@@ -1,11 +1,11 @@
 import {Pressable, StyleSheet, Text, View} from "react-native";
 import React from "react";
 
-const KategoriGridTile = ({drugName}) => {
+const KategoriGridTile = ({catName}) => {
   return (
     <View style={styles.gridOuter}>
       <View style={styles.gridInner}>
-        <Text style={{color: "#fff"}}>{drugName}</Text>
+        <Text>{catName}</Text>
       </View>
     </View>
   );
