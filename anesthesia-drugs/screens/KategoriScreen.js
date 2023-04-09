@@ -2,9 +2,8 @@ import {FlatList, StyleSheet, Text, View} from "react-native";
 import React from "react";
 
 import {GlobalStyles} from "../constants/appColors";
-import LMCategory from "../constants/category";
-import KategoriGridTile from "../components/output/KategoriGridTile";
-import DRUGS from "../constants/data";
+import {LMCategory} from "../constants/category";
+import {DRUGS} from "../constants/data";
 
 const KategoriScreen = () => {
   const matchedList = LMCategory.map((kategori) => {

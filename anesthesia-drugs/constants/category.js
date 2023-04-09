@@ -29,4 +29,4 @@ const LMCategory = [
   },
 ];
 
-export default LMCategory;
+export {LMCategory};

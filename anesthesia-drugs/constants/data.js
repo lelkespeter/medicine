@@ -169,4 +169,4 @@ const DRUGS = [
   },
 ];
 
-export default DRUGS;
+export {DRUGS};
