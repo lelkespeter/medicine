@@ -1,4 +1,4 @@
-const LMCategory = [
+export const LMCategory = [
   {
     catId: "c1",
     catName: "PONV",
@@ -28,5 +28,3 @@ const LMCategory = [
     catName: "Cirkulation",
   },
 ];
-
-export {LMCategory};

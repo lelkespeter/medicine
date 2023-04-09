@@ -1,4 +1,4 @@
-const DRUGS = [
+export const DRUGS = [
   {
     drugId: "l1",
     catId: ["c2", "c5"],
@@ -168,5 +168,3 @@ const DRUGS = [
     obs: " ",
   },
 ];
-
-export {DRUGS};

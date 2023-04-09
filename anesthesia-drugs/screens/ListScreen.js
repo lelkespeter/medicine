@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from "react-native";
 import React from "react";
-import WeightInput from "../components/input/WeightInput";
+import WeightInput from "../components/WeightInput";
 
 const ListScreen = () => {
   return (
