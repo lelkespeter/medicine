@@ -9,7 +9,7 @@ const LMCategory = [
   },
   {
     catId: "c3",
-    catName: "Muskelrelax",
+    catName: "Muskelrelaxantia",
   },
   {
     catId: "c4",

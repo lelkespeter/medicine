@@ -1,7 +1,13 @@
-import {StyleSheet, Text, View} from "react-native";
+import {FlatList, StyleSheet, Text, View} from "react-native";
 import React from "react";
 
 import {GlobalStyles} from "../constants/appColors";
+import LMCategory from "../constants/category";
+import KategoriGridTile from "../components/output/KategoriGridTile";
+
+function renderKategoriItem(itemData) {
+  return <KategoriGridTile catName={itemData.item.catName} />;
+}
 
 const KategoriScreen = () => {
   return (
@@ -12,6 +18,11 @@ const KategoriScreen = () => {
             Välj vilka läkemedel du ska använda
           </Text>
         </View>
+        <FlatList
+          data={LMCategory}
+          keyExtractor={(item) => item.catId}
+          renderItem={renderKategoriItem}
+        />
       </View>
     </>
   );
@@ -29,7 +40,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 17,
-    color: "white",
+    color: "#fff",
     textAlign: "center",
   },
 });
