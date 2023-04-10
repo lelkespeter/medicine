@@ -1,5 +1,12 @@
-import {FlatList, Pressable, StyleSheet, Text, View} from "react-native";
-import React from "react";
+import {
+  Button,
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import React, {useState} from "react";
 
 import {GlobalStyles} from "../constants/appColors";
 import {LMCategory} from "../constants/kategorier";
@@ -11,7 +18,31 @@ function renderCategoryItem(itemData) {
 }
 
 const KategoriScreen = () => {
-  //Mapping DRUGS with LMCategory
+  const [selectedDrugs, setSelectedDrugs] = useState([]);
+
+  const handleDrugSelection = (lm) => {
+    const selectedDrug = {
+      drugId: lm.drugId,
+      catId: lm.catId,
+      drugName: lm.drugName,
+      styrka: lm.styrka,
+      recept: lm.recept,
+      dosimG: lm.dosimG,
+      dosIµG: lm.dosIµG,
+      dosIµG_2: lm.dosIµG_2,
+      dosIµG_3: lm.dosIµG_3,
+      obs: lm.obs,
+    };
+    setSelectedDrugs((prevSelectedDrugs) => [
+      ...prevSelectedDrugs,
+      selectedDrug,
+    ]);
+    console.log(selectedDrug);
+  };
+
+  const naavigationToList = () => {
+    navigation.navigate("Lista", {selectedDrugs});
+  };
 
   const matchedList = LMCategory.map((kategori) => {
     const matchedDrugs = DRUGS.filter((lm) =>
@@ -31,21 +62,24 @@ const KategoriScreen = () => {
         <FlatList
           data={matchedList}
           keyExtractor={(item) => item.catId}
+          numColumns={2}
           renderItem={({item}) => (
-            <View style={{flex: 1, marginVertical: 5, marginHorizontal: 15}}>
+            <View style={{flex: 1, marginVertical: 7, marginHorizontal: 15}}>
               <View style={{flex: 1}}>
-                <Text style={{fontWeight: "bold"}}>{item.catName}</Text>
+                <Text style={{fontWeight: "bold", fontSize: 17}}>
+                  {item.catName}
+                </Text>
               </View>
               {item.drugs.map((lm) => (
                 <Pressable
                   style={{
                     flexDirection: "row",
                   }}
-                  onPress={() => console.log("Presssed :", lm.drugName)}
+                  onPress={() => handleDrugSelection(item)}
                   key={lm.drugId}
                 >
                   <View style={{marginRight: 3}}>
-                    <Text>{lm.drugName}</Text>
+                    <Text style={{fontSize: 15}}>{lm.drugName}</Text>
                   </View>
                   <View style={{flex: 1}}>
                     <Text>{lm.styrka}</Text>
@@ -56,6 +90,7 @@ const KategoriScreen = () => {
           )}
         />
       </View>
+      <Button title="Skapa Lista" onPress={naavigationToList} />
     </>
   );
 };
