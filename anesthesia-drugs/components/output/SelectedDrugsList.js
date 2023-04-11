@@ -1,10 +1,13 @@
 import {StyleSheet, Text, View} from "react-native";
-import React from "react";
+import React, {useContext} from "react";
+
+import {WeightContext} from "../../screens/context/weight-context";
 
 const SelectedDrugsList = ({item}) => {
+  const {weight} = useContext(WeightContext);
   const strength = item.styrka.charAt(item.styrka.length - 5);
   const numStrength = parseFloat(item.styrka);
-  const w = 3;
+  const w = +weight;
 
   return (
     <>

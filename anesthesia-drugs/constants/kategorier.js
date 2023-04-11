@@ -1,30 +1,34 @@
 export const LMCategory = [
   {
     catId: "c1",
-    catName: "PONV",
+    catName: "Premedicering",
   },
   {
     catId: "c2",
-    catName: "Sedering",
+    catName: "Induktion",
   },
   {
     catId: "c3",
-    catName: "Muskelrelaxantia",
+    catName: "Anestesiunderhåll",
   },
   {
     catId: "c4",
-    catName: "Preoperativt",
+    catName: "Muskelrelaxation",
   },
   {
     catId: "c5",
-    catName: "Smärt Behandling",
+    catName: "Reversering",
   },
   {
     catId: "c6",
-    catName: "Anestesi",
+    catName: "Postoperativ Analgesi",
   },
   {
     catId: "c7",
-    catName: "Cirkulation",
+    catName: "Sedation",
+  },
+  {
+    catId: "c8",
+    catName: "PONV",
   },
 ];

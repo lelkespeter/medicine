@@ -11,6 +11,7 @@ import React, {useState} from "react";
 import {GlobalStyles} from "../constants/appColors";
 import {LMCategory} from "../constants/kategorier";
 import {DRUGS} from "../constants/mediciner";
+import WeightInput from "../components/input/WeightInput";
 
 function renderCategoryItem(itemData) {
   return <KategoriGridTile catName={itemData.item.catName} />;
@@ -18,6 +19,7 @@ function renderCategoryItem(itemData) {
 
 const KategoriScreen = ({navigation}) => {
   const [selectedDrugs, setSelectedDrugs] = useState([]);
+  const [checked, setChecked] = useState(false);
 
   const handleDrugSelection = (lm) => {
     console.log("lm", lm);
@@ -37,7 +39,7 @@ const KategoriScreen = ({navigation}) => {
       ...prevSelectedDrugs,
       selectedDrug,
     ]);
-    console.log("selectedDrug: ", selectedDrug);
+    setChecked(true);
   };
 
   const naavigationToList = () => {
@@ -58,10 +60,11 @@ const KategoriScreen = ({navigation}) => {
 
   return (
     <>
+      <WeightInput />
       <View style={{flex: 1}}>
         <FlatList
           data={matchedList}
-          keyExtractor={(item) => item.catId}
+          keyExtractor={(item, index) => item.catId + index}
           numColumns={2}
           renderItem={({item}) => (
             <View style={{flex: 1, marginVertical: 7, marginHorizontal: 15}}>
@@ -79,7 +82,13 @@ const KategoriScreen = ({navigation}) => {
                   key={lm.drugId}
                 >
                   <View style={{marginRight: 3}}>
-                    <Text style={{fontSize: 15}}>{lm.drugName}</Text>
+                    <Text
+                      style={
+                        checked ? [styles.namn, {color: "green"}] : styles.namn
+                      }
+                    >
+                      {lm.drugName}
+                    </Text>
                   </View>
                   <View style={{flex: 1}}>
                     <Text>{lm.styrka}</Text>
@@ -89,8 +98,8 @@ const KategoriScreen = ({navigation}) => {
             </View>
           )}
         />
+        <Button title="Skapa Lista" onPress={naavigationToList} />
       </View>
-      <Button title="Skapa Lista" onPress={naavigationToList} />
     </>
   );
 };
@@ -109,5 +118,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#fff",
     textAlign: "center",
+  },
+  namn: {
+    fontSize: 17,
   },
 });

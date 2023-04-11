@@ -32,7 +32,7 @@ export default function App() {
               name="Kategori"
               component={KategoriScreeen}
               options={({navigation, route}) => ({
-                title: "Läkemedel vi använder",
+                title: "Anestesimedel till barn",
                 headerRight: () => (
                   <Pressable onPress={() => navigation.navigate("Lista")}>
                     <FontAwesome5
