@@ -1,13 +1,14 @@
 import {FlatList, StyleSheet, Text, View} from "react-native";
 import React from "react";
-import WeightInput from "../components/WeightInput";
+import SelectedDrugsList from "../components/output/SelectedDrugsList";
 
 const ListScreen = ({route}) => {
   const selectedDrugs = route.params?.selectedDrugs ?? [];
   return (
     <FlatList
       data={selectedDrugs}
-      renderItem={({item}) => <Text>{item.drugName}</Text>}
+      keyExtractor={(item, index) => item.drugId + index}
+      renderItem={({item}) => <SelectedDrugsList item={item} />}
     />
   );
 };

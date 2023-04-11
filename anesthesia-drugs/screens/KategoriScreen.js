@@ -11,16 +11,16 @@ import React, {useState} from "react";
 import {GlobalStyles} from "../constants/appColors";
 import {LMCategory} from "../constants/kategorier";
 import {DRUGS} from "../constants/mediciner";
-import KategoriGridTile from "../components/KategoriGridTile";
 
 function renderCategoryItem(itemData) {
   return <KategoriGridTile catName={itemData.item.catName} />;
 }
 
-const KategoriScreen = () => {
+const KategoriScreen = ({navigation}) => {
   const [selectedDrugs, setSelectedDrugs] = useState([]);
 
   const handleDrugSelection = (lm) => {
+    console.log("lm", lm);
     const selectedDrug = {
       drugId: lm.drugId,
       catId: lm.catId,
@@ -37,7 +37,7 @@ const KategoriScreen = () => {
       ...prevSelectedDrugs,
       selectedDrug,
     ]);
-    console.log(selectedDrug);
+    console.log("selectedDrug: ", selectedDrug);
   };
 
   const naavigationToList = () => {
@@ -75,7 +75,7 @@ const KategoriScreen = () => {
                   style={{
                     flexDirection: "row",
                   }}
-                  onPress={() => handleDrugSelection(item)}
+                  onPress={() => handleDrugSelection(lm)}
                   key={lm.drugId}
                 >
                   <View style={{marginRight: 3}}>
