@@ -7,7 +7,7 @@ import KategoriScreeen from "./screens/KategoriScreen";
 import ListScreen from "./screens/ListScreen";
 import {FontAwesome5} from "@expo/vector-icons";
 import {GlobalStyles} from "./constants/appColors";
-import WeightContextProvider from "./screens/context/weight-context";
+import WeightContextProvider from "./context/weight-context";
 
 const Stack = createNativeStackNavigator();
 

@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TextInput, View} from "react-native";
 import React, {useContext} from "react";
-import {WeightContext} from "../../screens/context/weight-context";
+import {WeightContext} from "../../context/weight-context";
 
 const WeightInput = () => {
   const {weight, weightInputHandler} = useContext(WeightContext);

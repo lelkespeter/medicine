@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
 import React, {useContext} from "react";
 
-import {WeightContext} from "../../screens/context/weight-context";
+import {WeightContext} from "../../context/weight-context";
 
 const SelectedDrugsList = ({item}) => {
   const {weight} = useContext(WeightContext);
